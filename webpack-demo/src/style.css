@@ -1,3 +1,52 @@
-.hello {
-  color: rgb(29, 93, 145);
+/* Global */
+body {
+  margin: 0;
 }
+
+body * {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#to-do-list {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 25px;
+}
+
+#to-do-list li{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px  rgb(216, 216, 216) solid;
+  border-top: 0;
+}
+
+#to-do-list li:first-of-type {
+  border-top: 1px  rgb(216, 216, 216) solid;
+}
+
+#to-do-list li input[type=checkbox] {
+  margin: 10px;
+}
+
+#to-do-list li input[type=text]{
+  width: 77%;
+  border: 0;
+  padding: 10px;
+  outline: none;
+}
+
+#to-do-list li button {
+  padding: 15px;
+  border: 0;
+  margin-left: auto;
+  background-color:rgba(63, 99, 129, 0);
+  background-image: url(./images/dots.png);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
