@@ -2,6 +2,17 @@ import _ from 'lodash';
 import './style.css';
 
 const tasksDiv = document.getElementById('to-do-list');
+const listTitleDiv = document.createElement('div');
+const listTitle = document.createElement('INPUT');
+const listRefresh = document.createElement('button');
+const clearCompleted = document.createElement('button');
+
+listTitle.setAttribute('type', 'text');
+listTitle.value = `Today's To Do`;
+tasksDiv.append(listTitleDiv);
+listTitleDiv.append(listTitle, listRefresh);
+clearCompleted.innerHTML = 'Clear all completed';
+
 
 const listItems = [
   {
@@ -51,3 +62,4 @@ const populateTasks = () => {
   }
 };
 populateTasks();
+tasksDiv.append(clearCompleted);
