@@ -3,6 +3,7 @@ import './style.css';
 import createTask from './modules/addTask';
 import createLi from './modules/addLi';
 import getTaskIndex from './modules/getTaskIndex';
+import removeTask from './modules/removeTask';
 
 // Dinamic creation of the list
 const toDoList = document.getElementById('to-do-div'); //main div
@@ -25,20 +26,26 @@ clearCompleted.innerHTML = 'Clear all completed';
 clearCompleted.setAttribute('id', 'clearCompleted');
 
 // description isCompleted index
-const listItems = [];
-// if there is something stored, then listItems = stored
+const tasksList = [];
+// if there is something stored, then tasksList = stored
 // after every addition / removal, update the localstorage
 
 const populateTasks = () => {
-  for (let i = 0; i < listItems.length; i += 1) {
-   const newLi = createLi(listItems[i]);
+  for (let i = 0; i < tasksList.length; i += 1) {
+   const newLi = createLi(tasksList[i]);
    tasksDiv.append(newLi);
   }
 };
 populateTasks();
 
 enterTask.addEventListener('click', () => {
-  const newTask = createTask(addTask.value, listItems.length);
+  const newTask = createTask(addTask.value, tasksList.length);
+  tasksList.push(newTask);
+  console.log(tasksList);
   const newLi = createLi(newTask);
   tasksDiv.append(newLi);
+  newLi.lastChild.addEventListener('click', () => {
+    removeTask(newTask, tasksList);
+    tasksDiv.removeChild(newLi);
+  });
 });

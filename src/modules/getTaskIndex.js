@@ -1,7 +1,7 @@
-const getTaskIndex = (index) => {
-  for (let i = 0; i < listItems.length; i += 1) {
-    if (listItems[i].index === index) {
-      return listItems[i];
+const getTaskIndex = (index, tasksList) => {
+  for (let i = 0; i < tasksList.length; i += 1) {
+    if (tasksList[i].index === index) {
+      return i;
     }
   }
   return null;
