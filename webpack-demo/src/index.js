@@ -5,13 +5,20 @@ const tasksDiv = document.getElementById('to-do-list');
 const listTitleDiv = document.createElement('div');
 const listTitle = document.createElement('INPUT');
 const listRefresh = document.createElement('button');
+const addTaskDiv = document.createElement('div');
+const addTask = document.createElement('INPUT');
+const enterTask = document.createElement('button');
 const clearCompleted = document.createElement('button');
 
 listTitle.setAttribute('type', 'text');
+addTask.setAttribute('type', 'text');
 listTitle.value = `Today's To Do`;
-tasksDiv.append(listTitleDiv);
+addTask.setAttribute('placeholder', 'Add to your list...');
+tasksDiv.append(listTitleDiv, addTaskDiv);
 listTitleDiv.append(listTitle, listRefresh);
+addTaskDiv.append(addTask, enterTask);
 clearCompleted.innerHTML = 'Clear all completed';
+clearCompleted.setAttribute ('id', 'clearCompleted');
 
 
 const listItems = [

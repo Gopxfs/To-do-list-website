@@ -1,4 +1,4 @@
-/* Global */
+/* GLOBAL */
 body {
   margin: 0;
 }
@@ -9,6 +9,8 @@ body * {
   padding: 0;
 }
 
+/* LIST ELEMENTS */
+
 #to-do-div div {
   display: flex;
   flex-direction: row;
@@ -18,6 +20,11 @@ body * {
   padding-left: 10px;
   width: auto;
 }
+
+#to-do-div div:last-of-type input[type=text]::placeholder {
+  font-style: italic;
+}
+
 
 #to-do-div div button {
   padding: 15px;
@@ -30,17 +37,26 @@ body * {
   background-position: center;
 }
 
+#to-do-div div:last-of-type button{
+  background-image: url(./images/enter.png);
+}
+
 #to-do-div div input[type=text]{
   border: 0;
   outline: none;
   width: 91%;
 }
 
-#to-do-div button { 
+#clearCompleted { 
   border: 1px  rgb(216, 216, 216) solid;
   border-top: 0;
   padding: 15px;
-  color: rgb(151, 151, 151);
+  color: rgb(138, 138, 138);
+}
+
+#clearCompleted:hover {
+  background-color: rgb(138, 138, 138);
+  color: rgb(219, 219, 219);
 }
 
 #to-do-list {
