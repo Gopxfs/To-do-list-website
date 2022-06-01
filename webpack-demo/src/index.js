@@ -23,22 +23,22 @@ clearCompleted.setAttribute ('id', 'clearCompleted');
 
 const listItems = [
   {
-    description: 'description1',
+    description: 'Task 1',
     isCompleted: false,
     index: 0,
   },
   {
-    description: 'description2',
+    description: 'Task 2',
     isCompleted: false,
     index: 3,
   },
   {
-    description: 'description3',
+    description: 'Task 3',
     isCompleted: true,
     index: 2,
   },
   {
-    description: 'description4',
+    description: 'Task 4',
     isCompleted: true,
     index: 1,
   },
