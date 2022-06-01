@@ -9,6 +9,10 @@ body * {
   padding: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 /* LIST ELEMENTS */
 
 #to-do-div div {
