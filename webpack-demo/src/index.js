@@ -12,13 +12,13 @@ const clearCompleted = document.createElement('button');
 
 listTitle.setAttribute('type', 'text');
 addTask.setAttribute('type', 'text');
-listTitle.value = `Today's To Do`;
+listTitle.value = 'Today\'s To Do';
 addTask.setAttribute('placeholder', 'Add to your list...');
 tasksDiv.append(listTitleDiv, addTaskDiv);
 listTitleDiv.append(listTitle, listRefresh);
 addTaskDiv.append(addTask, enterTask);
 clearCompleted.innerHTML = 'Clear all completed';
-clearCompleted.setAttribute ('id','clearCompleted');
+clearCompleted.setAttribute('id', 'clearCompleted');
 
 const listItems = [
   {
@@ -53,7 +53,7 @@ const getTaskIndex = (index) => {
 };
 
 const populateTasks = () => {
-  for (let i = 0; i < listItems.length; i += 1) { 
+  for (let i = 0; i < listItems.length; i += 1) {
     const currentTask = getTaskIndex(i);
     const newLi = document.createElement('li');
     const checkbox = document.createElement('INPUT');
