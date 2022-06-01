@@ -1,4 +1,4 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import './style.css';
 
 const tasksDiv = document.getElementById('to-do-list');
@@ -18,8 +18,7 @@ tasksDiv.append(listTitleDiv, addTaskDiv);
 listTitleDiv.append(listTitle, listRefresh);
 addTaskDiv.append(addTask, enterTask);
 clearCompleted.innerHTML = 'Clear all completed';
-clearCompleted.setAttribute ('id', 'clearCompleted');
-
+clearCompleted.setAttribute ('id','clearCompleted');
 
 const listItems = [
   {
@@ -45,7 +44,7 @@ const listItems = [
 ];
 
 const getTaskIndex = (index) => {
-  for (let i = 0; i <listItems.length; i += 1) {
+  for (let i = 0; i < listItems.length; i += 1) {
     if (listItems[i].index === index) {
       return listItems[i];
     }
@@ -64,7 +63,7 @@ const populateTasks = () => {
     taskName.setAttribute('type', 'text');
     tasksDiv.append(newLi);
     newLi.append(checkbox, taskName, taskButton);
-    taskName.value = currentTask.description
+    taskName.value = currentTask.description;
     checkbox.checked = currentTask.isCompleted;
   }
 };
