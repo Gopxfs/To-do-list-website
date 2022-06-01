@@ -1,11 +1,8 @@
 // import _ from 'lodash';
 import './style.css';
-import createTask from './modules/addTask';
-import createLi from './modules/addLi';
-import getTaskIndex from './modules/getTaskIndex';
-import removeTask from './modules/removeTask';
+import Task from './modules/taskClass';
 
-// Dinamic creation of the list
+// Dinamic creation of the list HTML elements
 const toDoList = document.getElementById('to-do-div'); //main div
 const tasksDiv = document.getElementById('to-do-list'); //ul
 const listTitleDiv = document.createElement('div');
@@ -25,27 +22,36 @@ addTaskDiv.append(addTask, enterTask);
 clearCompleted.innerHTML = 'Clear all completed';
 clearCompleted.setAttribute('id', 'clearCompleted');
 
-// description isCompleted index
-const tasksList = [];
-// if there is something stored, then tasksList = stored
-// after every addition / removal, update the localstorage
-
-const populateTasks = () => {
-  for (let i = 0; i < tasksList.length; i += 1) {
-   const newLi = createLi(tasksList[i]);
-   tasksDiv.append(newLi);
-  }
+// Creating an array of tasks and updating with localStorage
+// tasksList elements properties: description, isCompleted, index
+let tasksList = new Task();
+if (localStorage.getItem('tasksData')) {
+  tasksList.tasks = JSON.parse(localStorage.getItem('tasksData'));
+  console.log(tasksList.tasks);
+  for (let i = 0; i < tasksList.tasks.length; i += 1) {
+    const newLi = tasksList.addLi(tasksList.tasks[i]);
+    tasksDiv.append(newLi);
+    newLi.lastChild.addEventListener('click', () => {
+      tasksList.remove(tasksList.tasks[i]);
+      tasksDiv.removeChild(newLi);
+      console.log(tasksList.tasks);
+      localStorage.setItem('tasksData', JSON.stringify(tasksList.tasks));
+    });
+  };
 };
-populateTasks();
 
+// When click the enter button, create a new task and a new task LI
 enterTask.addEventListener('click', () => {
-  const newTask = createTask(addTask.value, tasksList.length);
-  tasksList.push(newTask);
-  console.log(tasksList);
-  const newLi = createLi(newTask);
+  const newTask = tasksList.add(addTask.value);
+  const newLi = tasksList.addLi(newTask);
+  console.log(tasksList.tasks);
+  localStorage.setItem('tasksData', JSON.stringify(tasksList.tasks));
   tasksDiv.append(newLi);
+  // When click in the remove button, remove the task from tasksList and disappend LI
   newLi.lastChild.addEventListener('click', () => {
-    removeTask(newTask, tasksList);
+    tasksList.remove(newTask);
     tasksDiv.removeChild(newLi);
+    console.log(tasksList.tasks);
+    localStorage.setItem('tasksData', JSON.stringify(tasksList.tasks));
   });
 });
