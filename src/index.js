@@ -36,6 +36,9 @@ for (let i = 0; i < list.tasks.length; i += 1) {
   description.addEventListener('input', () => {
     list.updateDescription(description.value, newTask);
   });
+  description.addEventListener('click', () => {
+    list.highlightTask(newTask);
+  });
   checkbox.addEventListener('change', () => {
     list.updateCheckbox(newTask);
   });
@@ -55,6 +58,9 @@ addTask.addEventListener('submit', () => {
   description.addEventListener('input', () => {
     list.updateDescription(description.value, newTask);
   });
+  description.addEventListener('click', () => {
+    list.highlightTask(newTask);
+  });
   checkbox.addEventListener('change', () => {
     list.updateCheckbox(newTask);
   });
@@ -63,5 +69,4 @@ addTask.addEventListener('submit', () => {
 clearCompleted.addEventListener('click', () => {
   list.tasks = list.tasks.filter(list.clearCompleted);
   list.setData();
-  console.log(list.tasks);
 });

@@ -11,3 +11,14 @@ body * {
 .hidden {
   display: none;
 }
+
+.dots {
+  height: 15px;
+  width: 15px;
+  src: url(./images/dots.png);
+  background-size: 15px;
+}
+
+.highlight {
+  background-color: chartreuse;
+}
