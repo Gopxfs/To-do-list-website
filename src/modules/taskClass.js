@@ -27,9 +27,11 @@ class List {
     const input = document.createElement('INPUT');
     const button = document.createElement('button');
     const drag = document.createElement('img');
-    drag.classList.add('dots', 'hidden');
-    drag.setAttribute('src', dots)
+    button.classList.add('hidden');
+    drag.classList.add('dots');
     button.innerHTML = 'remove';
+    drag.setAttribute('src', dots);
+    drag.setAttribute('id', `drag${task.id}`);
     li.setAttribute('id', `li${task.id}`);
     checkbox.setAttribute('id', `checkbox${task.id}`);
     input.setAttribute('id', `input${task.id}`);
@@ -75,14 +77,22 @@ class List {
   highlightTask = (task) => {
     this.removeHighlight();
     const input = document.getElementById(`input${task.id}`);
-    input.setAttribute('class', 'highlight');
+    const removeButton = document.getElementById(`button${task.id}`);
+    const drag = document.getElementById(`drag${task.id}`);
+    input.classList.add('highlight');
+    drag.classList.add('hidden');
+    removeButton.classList.remove('hidden');
   };
 
   removeHighlight = () => {
     const id = this.findHighlight();
     if (id) {
     const input = document.getElementById(`input${id}`);
+    const drag = document.getElementById(`drag${id}`);
+    const removeButton = document.getElementById(`button${id}`);
     input.classList.remove('highlight');
+    drag.classList.remove('hidden');
+    removeButton.classList.add('hidden');
     }
     // remove highlight from inputid
     // add hidden to trash button
