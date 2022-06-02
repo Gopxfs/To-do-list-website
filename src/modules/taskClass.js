@@ -1,54 +1,74 @@
-class Task {
-  constructor (tasks = []) {
-    this.tasks = tasks;
+class List {
+  constructor(taskID) {
+    this.tasks = [];
+    this.taskID = Number(taskID);
   }
 
-  add = (description) => {
-    const task = {
-      description: description,
-      isCompleted: false,
-      index: this.tasks.length,
+  addTask = (description, index, isCompleted) => {
+    const newTask = {
+      description: description ?? 'description',
+      isCompleted: isCompleted ?? false,
+      index: index ?? this.tasks.length,
+      id: this.taskID,
     };
-    this.tasks.push(task);
-    return task;
+    this.tasks.push(newTask);
+    this.taskID += 1;
+    this.setData();
+    return newTask;
   };
 
   addLi = (task) => {
-    const newLi = document.createElement('li');
+    const ul = document.getElementById('tasks');
+    const li = document.createElement('li');
     const checkbox = document.createElement('INPUT');
-    const taskName = document.createElement('INPUT');
-    const taskButton = document.createElement('button');
-    const removeTaskButton = document.createElement('button');
+    const input = document.createElement('INPUT');
+    const button = document.createElement('button');
+    button.innerHTML = 'remove';
+    li.setAttribute('id', `li${task.id}`);
+    checkbox.setAttribute('id', `checkbox${task.id}`);
+    input.setAttribute('id', `input${task.id}`);
+    button.setAttribute('id', `button${task.id}`);
     checkbox.setAttribute('type', 'checkbox');
-    taskName.setAttribute('type', 'text');
-    newLi.append(checkbox, taskName, taskButton, removeTaskButton);
-    taskName.value = task.description;
+    input.setAttribute('type', 'text');
     checkbox.checked = task.isCompleted;
-    return newLi;
+    input.value = task.description;
+    li.append(checkbox, input, button);
+    ul.append(li);
   };
 
-  remove = (task) => {
-    const taskPosition = this.getPositionInArray(task.index);
-    this.tasks.splice(taskPosition, 1);
-    this.updateIndexes(task.index);
-  };
-
-  getPositionInArray = (index) => {
-    for (let i = 0; i < this.tasks.length; i += 1) {
-      if (this.tasks[i].index === index) {
-        return i; // position in array
-      }
-    }
-    return null;
-  };
-
-  updateIndexes = (removedIndex) => {
-    for (let i= 0; i < this.tasks.length; i += 1) {
-      if (this.tasks[i].index > removedIndex) {
+  removeTask = (task) => {
+      const ul = document.getElementById('tasks');
+      const index = this.getTaskIndex(task.id);
+      const li = document.getElementById(`li${task.id}`);
+      this.tasks.splice(index,1);
+      ul.removeChild(li);
+      for (let i = index; i < this.tasks.length; i += 1) {
         this.tasks[i].index -= 1;
-      }
-    }
+      };
+      this.setData();
   };
-};
+
+  setData = () => {
+    localStorage.setItem('tasksData', JSON.stringify(this.tasks));
+    localStorage.setItem('idData', this.taskID);
+  };
+
+  getData = () => {
+    if (localStorage.getItem('tasksData')) {
+      return JSON.parse(localStorage.getItem('tasksData'));
+    }
+    return [];
+  };
+
+  getTaskIndex = (id) => {
+    let i = 0;
+    while (this.tasks[i].id !== id) {
+      i += 1;
+    };
+    return i;
+  };
+}
+
   
-export default Task;
+
+export default List;
