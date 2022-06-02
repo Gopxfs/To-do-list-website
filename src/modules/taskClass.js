@@ -37,15 +37,15 @@ class List {
   };
 
   removeTask = (task) => {
-      const ul = document.getElementById('tasks');
-      const index = this.getTaskIndex(task.id);
-      const li = document.getElementById(`li${task.id}`);
-      this.tasks.splice(index,1);
-      ul.removeChild(li);
-      for (let i = index; i < this.tasks.length; i += 1) {
-        this.tasks[i].index -= 1;
-      };
-      this.setData();
+    const ul = document.getElementById('tasks');
+    const index = this.getTaskIndex(task.id);
+    const li = document.getElementById(`li${task.id}`);
+    this.tasks.splice(index, 1);
+    ul.removeChild(li);
+    for (let i = index; i < this.tasks.length; i += 1) {
+      this.tasks[i].index -= 1;
+    }
+    this.setData();
   };
 
   updateDescription = (description, task) => {
@@ -69,12 +69,12 @@ class List {
     }
     return [];
   };
-  
+
   getTaskIndex = (id) => {
     let i = 0;
     while (this.tasks[i].id !== id) {
       i += 1;
-    };
+    }
     return i;
   };
 

@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>To-do List</title>
-<script defer src="runtime-b5355a25fa3eeae42b4f.js"></script><script defer src="main-b5355a25fa3eeae42b4f.js"></script></head>
+<script defer src="runtime-64f4688f636c0d4a8831.js"></script><script defer src="main-64f4688f636c0d4a8831.js"></script></head>
 <body>
   <section id = list>
     <div id="title">
-      <input type="text" value="Today's To Do">
-      <img src="./images/refresh.png">
+      <input type="text" id="listTitle" value="Today's To Do">
+      <button type="button">refresh</button>
     </div>
     <form action="#" id="addTask">
-
+      <input type="text" id="addDescription" placeholder="Add to your list..." required>
+      <button type="submit" id="addButton">enter</button>
     </form>
     <ul id="tasks">
       <!-- CREATED IN JAVASCRIPT -->
     </ul>
-    <button>Clear all completed</button>
+    <button type="button">Clear all completed</button>
   </section>
 </body>
 </html>
