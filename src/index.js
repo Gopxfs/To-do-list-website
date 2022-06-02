@@ -4,13 +4,20 @@ import List from './modules/taskClass';
 
 const addTask = document.getElementById('addTask');
 const addDescription = document.getElementById('addDescription');
+const listTitle = document.getElementById('listTitle');
 let idData = 0;
 if (localStorage.getItem('idData')) {
   idData = localStorage.getItem('idData');
 };
 let list = new List(idData);
 list.tasks = list.getData();
-console.log(list.taskID);
+
+if (localStorage.getItem('listName')) {
+  listTitle.value = localStorage.getItem('listName');
+};
+listTitle.addEventListener ('input', () => {
+  list.setListName(listTitle.value);
+});
 
 // Populating data
 for (let i = 0; i < list.tasks.length; i += 1) {

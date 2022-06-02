@@ -69,13 +69,17 @@ class List {
     }
     return [];
   };
-
+  
   getTaskIndex = (id) => {
     let i = 0;
     while (this.tasks[i].id !== id) {
       i += 1;
     };
     return i;
+  };
+
+  setListName = (newTitle) => {
+    localStorage.setItem('listName', newTitle);
   };
 }
 
