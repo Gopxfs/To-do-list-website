@@ -1,71 +1,59 @@
 // import _ from 'lodash';
 import './style.css';
+import List from './modules/taskClass.js';
 
-const tasksDiv = document.getElementById('to-do-list');
-const listTitleDiv = document.createElement('div');
-const listTitle = document.createElement('INPUT');
-const listRefresh = document.createElement('button');
-const addTaskDiv = document.createElement('div');
-const addTask = document.createElement('INPUT');
-const enterTask = document.createElement('button');
-const clearCompleted = document.createElement('button');
+const addTask = document.getElementById('addTask');
+const addDescription = document.getElementById('addDescription');
+const listTitle = document.getElementById('listTitle');
+let idData = 0;
+if (localStorage.getItem('idData')) {
+  idData = localStorage.getItem('idData');
+}
+const list = new List(idData);
+list.tasks = list.getData();
 
-listTitle.setAttribute('type', 'text');
-addTask.setAttribute('type', 'text');
-listTitle.value = 'Today\'s To Do';
-addTask.setAttribute('placeholder', 'Add to your list...');
-tasksDiv.append(listTitleDiv, addTaskDiv);
-listTitleDiv.append(listTitle, listRefresh);
-addTaskDiv.append(addTask, enterTask);
-clearCompleted.innerHTML = 'Clear all completed';
-clearCompleted.setAttribute('id', 'clearCompleted');
+if (localStorage.getItem('listName')) {
+  listTitle.value = localStorage.getItem('listName');
+}
+listTitle.addEventListener('input', () => {
+  list.setListName(listTitle.value);
+});
 
-const listItems = [
-  {
-    description: 'Task 1',
-    isCompleted: false,
-    index: 0,
-  },
-  {
-    description: 'Task 2',
-    isCompleted: false,
-    index: 3,
-  },
-  {
-    description: 'Task 3',
-    isCompleted: true,
-    index: 2,
-  },
-  {
-    description: 'Task 4',
-    isCompleted: true,
-    index: 1,
-  },
-];
+// Populating data
+for (let i = 0; i < list.tasks.length; i += 1) {
+  const newTask = list.tasks[i];
+  list.addLi(newTask);
+  const description = document.getElementById(`input${newTask.id}`);
+  const checkbox = document.getElementById(`checkbox${newTask.id}`);
+  const removeButton = document.getElementById(`button${newTask.id}`);
+  addDescription.value = '';
+  // event listeners:
+  removeButton.addEventListener('click', () => {
+    list.removeTask(newTask);
+  });
+  description.addEventListener('input', () => {
+    list.updateDescription(description.value, newTask);
+  });
+  checkbox.addEventListener('change', () => {
+    list.updateCheckbox(newTask);
+  });
+}
 
-const getTaskIndex = (index) => {
-  for (let i = 0; i < listItems.length; i += 1) {
-    if (listItems[i].index === index) {
-      return listItems[i];
-    }
-  }
-  return null;
-};
-
-const populateTasks = () => {
-  for (let i = 0; i < listItems.length; i += 1) {
-    const currentTask = getTaskIndex(i);
-    const newLi = document.createElement('li');
-    const checkbox = document.createElement('INPUT');
-    const taskName = document.createElement('INPUT');
-    const taskButton = document.createElement('button');
-    checkbox.setAttribute('type', 'checkbox');
-    taskName.setAttribute('type', 'text');
-    tasksDiv.append(newLi);
-    newLi.append(checkbox, taskName, taskButton);
-    taskName.value = currentTask.description;
-    checkbox.checked = currentTask.isCompleted;
-  }
-};
-populateTasks();
-tasksDiv.append(clearCompleted);
+addTask.addEventListener('submit', () => {
+  const newTask = list.addTask(addDescription.value);
+  list.addLi(list.tasks[list.tasks.length - 1]);
+  const description = document.getElementById(`input${list.taskID - 1}`);
+  const checkbox = document.getElementById(`checkbox${list.taskID - 1}`);
+  const removeButton = document.getElementById(`button${list.taskID - 1}`);
+  addDescription.value = '';
+  // event listeners:
+  removeButton.addEventListener('click', () => {
+    list.removeTask(newTask);
+  });
+  description.addEventListener('input', () => {
+    list.updateDescription(description.value, newTask);
+  });
+  checkbox.addEventListener('change', () => {
+    list.updateCheckbox(newTask);
+  });
+});
