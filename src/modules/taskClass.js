@@ -48,6 +48,16 @@ class List {
       this.setData();
   };
 
+  updateDescription = (description, task) => {
+    task.description = description;
+    this.setData();
+  };
+
+  updateCheckbox = (task) => {
+    task.isCompleted = !task.isCompleted;
+    this.setData();
+  };
+
   setData = () => {
     localStorage.setItem('tasksData', JSON.stringify(this.tasks));
     localStorage.setItem('idData', this.taskID);
@@ -68,7 +78,5 @@ class List {
     return i;
   };
 }
-
-  
 
 export default List;
