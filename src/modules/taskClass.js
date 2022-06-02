@@ -11,6 +11,7 @@ class List {
       index: index ?? this.tasks.length,
       id: this.taskID,
     };
+    newTask.index += 1;
     this.tasks.push(newTask);
     this.taskID += 1;
     this.setData();
