@@ -49,6 +49,24 @@ class List {
     this.setData();
   };
 
+  removeDiv = (task) => {
+    const ul = document.getElementById('tasks');
+    const index = this.getTaskIndex(task.id);
+    const li = document.getElementById(`li${task.id}`);
+    ul.removeChild(li);
+    for (let i = index; i < this.tasks.length; i += 1) {
+      this.tasks[i].index -= 1;
+    }
+  };
+
+  clearCompleted = (task) => {
+    if (task.isCompleted === true)  { 
+      this.removeDiv(task);
+      return false;
+    }
+    return true;
+  };
+
   updateDescription = (description, task) => {
     task.description = description;
     this.setData();

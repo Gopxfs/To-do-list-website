@@ -5,6 +5,8 @@ import List from './modules/taskClass.js';
 const addTask = document.getElementById('addTask');
 const addDescription = document.getElementById('addDescription');
 const listTitle = document.getElementById('listTitle');
+const clearCompleted = document.getElementById('clearCompleted');
+
 let idData = 0;
 if (localStorage.getItem('idData')) {
   idData = localStorage.getItem('idData');
@@ -56,4 +58,10 @@ addTask.addEventListener('submit', () => {
   checkbox.addEventListener('change', () => {
     list.updateCheckbox(newTask);
   });
+});
+
+clearCompleted.addEventListener('click', () => {
+  list.tasks = list.tasks.filter(list.clearCompleted);
+  list.setData();
+  console.log(list.tasks);
 });
