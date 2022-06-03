@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'roboto';
+  src: url(./fonts/roboto/roboto-v30-latin-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* GLOBAL */
 body {
   display: flex;
@@ -11,9 +18,11 @@ body {
 }
 
 body * {
+  font-family: 'roboto';
   list-style: none;
   margin: 0;
   padding: 0;
+  border: 0;
   outline: none;
   color: rgb(219, 219, 219);
 }
@@ -26,10 +35,13 @@ body * {
 #list {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  padding-top: 12px;
   width: 90%;
   max-width: 750px;
   min-width: 350px;
   margin-bottom: 20%;
+  background-color: rgb(49, 47, 43);
 }
 
 #title {
@@ -39,6 +51,7 @@ body * {
 }
 
 #listTitle {
+  font-weight: bold;
   font-size: 22px;
   padding: 12px;
   border-bottom: 0;
@@ -55,14 +68,26 @@ body * {
 
 #addDescription {
   font-size: 18px;
+  margin-bottom: 15px;
   padding: 12px;
   border-bottom: 0;
   width: 100%;
   background-color: rgb(49, 47, 43);
 }
 
-#addButton {
+#addDescription::placeholder {
+  font-style: italic;
+}
 
+#addButton { 
+  height: auto;
+  width: 36px;
+  border: 0;
+  background-color: rgb(49, 47, 43);
+  background-image: url(./images/enter.png);
+  background-size: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ul */
@@ -90,11 +115,12 @@ body * {
 
 /* JS */
 #tasks li input[type=text].highlight {
-  background-color: chartreuse;
+  background-color: rgb(73, 68, 52);
 }
 
 #tasks li input[type=text].done {
-  background-color: red;
+  font-style: italic;
+  text-decoration: line-through;
 }
 
 #tasks li input[type=checkbox] {
@@ -121,7 +147,14 @@ body * {
 
 #clearCompleted {
   font-size: 18px;
-  padding: 12px;
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 15px;
   border: 0;
-  background-color: rgb(49, 47, 43);
+  background-color: rgb(61, 59, 55);
+}
+
+.selected {
+  background-color: rgb(61, 59, 55);
 }
