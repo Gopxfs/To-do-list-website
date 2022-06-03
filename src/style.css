@@ -40,8 +40,9 @@ body * {
   width: 90%;
   max-width: 750px;
   min-width: 350px;
-  margin-bottom: 20%;
+  margin-bottom: 15%;
   background-color: rgb(49, 47, 43);
+  box-shadow: 7px 5px 5px black;
 }
 
 #title {
