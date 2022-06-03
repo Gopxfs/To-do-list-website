@@ -1,5 +1,8 @@
 /* GLOBAL */
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   background: rgb(238,158,5);
   background: linear-gradient(0deg, rgba(238,158,5,1) 0%, rgba(0,0,0,1) 100%);
@@ -12,7 +15,6 @@ body * {
   margin: 0;
   padding: 0;
   outline: none;
-
 }
 
 .hidden {
@@ -20,13 +22,6 @@ body * {
 }
 
 /* JS */
-.dots {
-  height: 15px;
-  width: 15px;
-  src: url(./images/dots.png);
-  background-size: 15px;
-}
-
 .highlight {
   background-color: chartreuse;
 }
@@ -39,30 +34,29 @@ body * {
 #list {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 90%;
   max-width: 750px;
+  min-width: 350px;
+  margin-bottom: 20%;
 }
 
 #title {
   display: flex;
   flex-direction: row;
-  border: rgb(112, 103, 87) 1px solid;
+  border: 0;
 }
 
 #listTitle {
   padding: 12px;
   border-bottom: 0;
+  text-align: center;
   width: 100%;
-}
-
-#title button {
-
 }
 
 #addTask {
   display: flex;
   flex-direction: row;
-  border: rgb(112, 103, 87) 1px solid;
+  border: 0;
 }
 
 #addDescription {
@@ -81,6 +75,7 @@ body * {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: rgb(109, 109, 109);
 }
 
 #tasks li {
@@ -92,11 +87,32 @@ body * {
 #tasks li input[type=text]{
   padding: 10px;
   width: 100%;
-  border: rgb(112, 103, 87) 1px solid;
+  border: 0;
 }
 
+#tasks li input[type=checkbox] {
+  margin: 7px;
+}
+
+#tasks li img {
+  height: 21px;
+  width: 21px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+#tasks li button {
+  height: 36px;
+  width: 36px;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url(./images/bin.png);
+  background-size: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 #clearCompleted {
   padding: 12px;
-  border: rgb(112, 103, 87) 1px solid;
+  border: 0;
 }

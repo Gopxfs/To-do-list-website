@@ -1,4 +1,4 @@
-import dots from '../images/dots.png';
+import move from '../images/move.png';
 
 class List {
   constructor(taskID) {
@@ -29,8 +29,7 @@ class List {
     const drag = document.createElement('img');
     button.classList.add('hidden');
     drag.classList.add('dots');
-    button.innerHTML = 'remove';
-    drag.setAttribute('src', dots);
+    drag.setAttribute('src', move);
     drag.setAttribute('id', `drag${task.id}`);
     li.setAttribute('id', `li${task.id}`);
     checkbox.setAttribute('id', `checkbox${task.id}`);
