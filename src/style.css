@@ -6,12 +6,14 @@ body {
 body * {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 .hidden {
   display: none;
 }
 
+/* JS */
 .dots {
   height: 15px;
   width: 15px;
@@ -21,4 +23,16 @@ body * {
 
 .highlight {
   background-color: chartreuse;
+}
+
+.done {
+  background-color: red;
+}
+
+/* LIST STRUCTURE */
+#list {
+  position: fixed;
+  top: 25%;
+  left: calc(100% - 350px);
+  width: 350px;
 }

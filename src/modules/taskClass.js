@@ -94,9 +94,6 @@ class List {
     drag.classList.remove('hidden');
     removeButton.classList.add('hidden');
     }
-    // remove highlight from inputid
-    // add hidden to trash button
-
   };
 
   findHighlight = () => {
@@ -115,8 +112,14 @@ class List {
   };
 
   updateCheckbox = (task) => {
+    const id = task.id;
     task.isCompleted = !task.isCompleted;
     this.setData();
+  };
+
+  checkTask = (id) => {
+    const description = document.getElementById(`input${id}`);
+    description.classList.toggle('done');
   };
 
   setData = () => {

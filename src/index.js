@@ -28,7 +28,7 @@ for (let i = 0; i < list.tasks.length; i += 1) {
   const description = document.getElementById(`input${newTask.id}`);
   const checkbox = document.getElementById(`checkbox${newTask.id}`);
   const removeButton = document.getElementById(`button${newTask.id}`);
-  addDescription.value = '';
+  if (newTask.isCompleted) list.checkTask(newTask.id);
   // event listeners:
   removeButton.addEventListener('click', () => {
     list.removeTask(newTask);
@@ -39,8 +39,12 @@ for (let i = 0; i < list.tasks.length; i += 1) {
   description.addEventListener('click', () => {
     list.highlightTask(newTask);
   });
+  description.addEventListener('keydown', () => {
+    list.highlightTask(newTask);
+  });
   checkbox.addEventListener('change', () => {
     list.updateCheckbox(newTask);
+    list.checkTask(newTask.id);
   });
 }
 
@@ -61,8 +65,12 @@ addTask.addEventListener('submit', () => {
   description.addEventListener('click', () => {
     list.highlightTask(newTask);
   });
+  description.addEventListener('keydown', () => {
+    list.highlightTask(newTask);
+  });
   checkbox.addEventListener('change', () => {
     list.updateCheckbox(newTask);
+    list.checkTask(newTask.id);
   });
 });
 
