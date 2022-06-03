@@ -66,7 +66,7 @@ class List {
   };
 
   clearCompleted = (task) => {
-    if (task.isCompleted === true)  { 
+    if (task.isCompleted === true) {
       this.removeDiv(task);
       return false;
     }
@@ -86,23 +86,24 @@ class List {
   removeHighlight = () => {
     const id = this.findHighlight();
     if (id >= 0) {
-    const input = document.getElementById(`input${id}`);
-    const drag = document.getElementById(`drag${id}`);
-    const removeButton = document.getElementById(`button${id}`);
-    input.classList.remove('highlight');
-    drag.classList.remove('hidden');
-    removeButton.classList.add('hidden');
+      const input = document.getElementById(`input${id}`);
+      const drag = document.getElementById(`drag${id}`);
+      const removeButton = document.getElementById(`button${id}`);
+      input.classList.remove('highlight');
+      drag.classList.remove('hidden');
+      removeButton.classList.add('hidden');
     }
   };
 
   findHighlight = () => {
-    for (let i = 0; i < this.tasks.length; i += 1) { 
-      const id = this.tasks[i].id;
+    for (let i = 0; i < this.tasks.length; i += 1) {
+      const { id } = this.tasks[i];
       const input = document.getElementById(`input${id}`);
-      if (input.classList.contains('highlight')){
+      if (input.classList.contains('highlight')) {
         return id;
       }
     }
+    return -1;
   };
 
   updateDescription = (description, task) => {
@@ -111,7 +112,6 @@ class List {
   };
 
   updateCheckbox = (task) => {
-    const id = task.id;
     task.isCompleted = !task.isCompleted;
     this.setData();
   };

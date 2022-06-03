@@ -13,14 +13,14 @@ body {
   overflow: hidden;
   flex-wrap: wrap;
   margin: 0;
-  background: rgb(238,158,5);
-  background: linear-gradient(0deg, rgba(238,158,5,1) 0%, rgba(0,0,0,1) 100%);
+  background: rgb(238, 158, 5);
+  background: linear-gradient(0deg, rgba(238, 158, 5, 1) 0%, rgba(0, 0, 0, 1) 100%);
   background-repeat: no-repeat;
   height: 100vh;
 }
 
 body * {
-  font-family: 'roboto';
+  font-family: 'roboto', sans-serif;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -89,7 +89,7 @@ body * {
   font-style: italic;
 }
 
-#addButton { 
+#addButton {
   height: auto;
   width: 36px;
   border: 0;
@@ -101,8 +101,9 @@ body * {
 }
 
 /* ul */
+
 /* li, input type checkbox, input type text, button, img */
-#tasks { 
+#tasks {
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -117,7 +118,7 @@ body * {
   align-items: center;
 }
 
-#tasks li input[type=text]{
+#tasks li input[type=text] {
   font-size: 16px;
   padding: 10px;
   width: 100%;
