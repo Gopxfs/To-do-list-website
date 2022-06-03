@@ -78,3 +78,11 @@ clearCompleted.addEventListener('click', () => {
   list.tasks = list.tasks.filter(list.clearCompleted);
   list.setData();
 });
+
+// quality of life
+listTitle.addEventListener('click', () => {
+  list.removeHighlight();
+});
+addTask.addEventListener('click', () => {
+  list.removeHighlight();
+});
