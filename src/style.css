@@ -1,12 +1,18 @@
 /* GLOBAL */
 body {
   margin: 0;
+  background: rgb(238,158,5);
+  background: linear-gradient(0deg, rgba(238,158,5,1) 0%, rgba(0,0,0,1) 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 body * {
   list-style: none;
   margin: 0;
   padding: 0;
+  outline: none;
+
 }
 
 .hidden {
@@ -31,8 +37,66 @@ body * {
 
 /* LIST STRUCTURE */
 #list {
-  position: fixed;
-  top: 25%;
-  left: calc(100% - 350px);
-  width: 350px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 750px;
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  border: rgb(112, 103, 87) 1px solid;
+}
+
+#listTitle {
+  padding: 12px;
+  border-bottom: 0;
+  width: 100%;
+}
+
+#title button {
+
+}
+
+#addTask {
+  display: flex;
+  flex-direction: row;
+  border: rgb(112, 103, 87) 1px solid;
+}
+
+#addDescription {
+  padding: 12px;
+  border-bottom: 0;
+  width: 100%;
+}
+
+#addButton {
+
+}
+
+/* ul */
+/* li, input type checkbox, input type text, button, img */
+#tasks { 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#tasks li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#tasks li input[type=text]{
+  padding: 10px;
+  width: 100%;
+  border: rgb(112, 103, 87) 1px solid;
+}
+
+
+#clearCompleted {
+  padding: 12px;
+  border: rgb(112, 103, 87) 1px solid;
 }
