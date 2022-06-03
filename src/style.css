@@ -10,6 +10,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  flex-wrap: wrap;
   margin: 0;
   background: rgb(238,158,5);
   background: linear-gradient(0deg, rgba(238,158,5,1) 0%, rgba(0,0,0,1) 100%);
@@ -33,6 +35,8 @@ body * {
 
 /* LIST STRUCTURE */
 #list {
+  position: absolute;
+  top: 12vh;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -101,7 +105,9 @@ body * {
 #tasks { 
   display: flex;
   flex-direction: column;
+  overflow: auto;
   width: 100%;
+  max-height: 50vh;
   background-color: rgb(49, 47, 43);
 }
 
@@ -151,6 +157,7 @@ body * {
 #tasks li button {
   height: 36px;
   width: 36px;
+  margin-left: 5px;
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   background-image: url(./images/bin.png);
