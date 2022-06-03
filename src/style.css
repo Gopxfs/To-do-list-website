@@ -1,13 +1,186 @@
+@font-face {
+  font-family: 'roboto';
+  src: url(./fonts/roboto/roboto-v30-latin-regular.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* GLOBAL */
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-wrap: wrap;
   margin: 0;
+  background: rgb(238, 158, 5);
+  background: linear-gradient(0deg, rgba(238, 158, 5, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 body * {
+  font-family: 'roboto', sans-serif;
   list-style: none;
   margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  color: rgb(219, 219, 219);
 }
 
 .hidden {
   display: none;
+}
+
+/* LIST STRUCTURE */
+#list {
+  position: absolute;
+  top: 12vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 12px;
+  width: 90%;
+  max-width: 750px;
+  min-width: 350px;
+  margin-bottom: 15%;
+  background-color: rgb(49, 47, 43);
+  box-shadow: 7px 5px 5px black;
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  border: 0;
+}
+
+#listTitle {
+  font-weight: bold;
+  font-size: 22px;
+  padding: 12px;
+  border-bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(49, 47, 43);
+}
+
+#addTask {
+  display: flex;
+  flex-direction: row;
+  border: 0;
+}
+
+#addDescription {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-bottom: 0;
+  width: 100%;
+  background-color: rgb(49, 47, 43);
+}
+
+#addDescription:focus,
+#listTitle:focus {
+  background-color: rgb(61, 59, 55);
+}
+
+#addDescription::placeholder {
+  font-style: italic;
+}
+
+#addButton {
+  height: auto;
+  width: 36px;
+  border: 0;
+  background-color: rgb(49, 47, 43);
+  background-image: url(./images/enter.png);
+  background-size: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ul */
+
+/* li, input type checkbox, input type text, button, img */
+#tasks {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 100%;
+  max-height: 50vh;
+  background-color: rgb(49, 47, 43);
+}
+
+#tasks li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#tasks li input[type=text] {
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border: 0;
+  background-color: rgb(49, 47, 43);
+}
+
+#tasks li input[type=text].highlight {
+  background-color: rgb(73, 68, 52);
+}
+
+#tasks li input[type=text].done {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+#tasks li input[type=checkbox] {
+  appearance: none;
+  margin: 7px;
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(219, 219, 219);
+}
+
+#tasks li input[type=checkbox]:checked {
+  background-color: rgb(226, 142, 17);
+}
+
+#tasks li img {
+  height: 21px;
+  width: 21px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+#tasks li button {
+  height: 36px;
+  width: 36px;
+  margin-left: 5px;
+  border: 0;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url(./images/bin.png);
+  background-size: 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#clearCompleted {
+  font-size: 18px;
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 15px;
+  border: 0;
+  background-color: rgb(61, 59, 55);
+}
+
+#clearCompleted:hover {
+  background-color: rgb(73, 71, 66);
+}
+
+#clearCompleted:active {
+  background-color: rgb(83, 80, 75);
 }
