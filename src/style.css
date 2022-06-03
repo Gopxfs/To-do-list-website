@@ -15,19 +15,11 @@ body * {
   margin: 0;
   padding: 0;
   outline: none;
+  color: rgb(219, 219, 219);
 }
 
 .hidden {
   display: none;
-}
-
-/* JS */
-.highlight {
-  background-color: chartreuse;
-}
-
-.done {
-  background-color: red;
 }
 
 /* LIST STRUCTURE */
@@ -47,10 +39,12 @@ body * {
 }
 
 #listTitle {
+  font-size: 22px;
   padding: 12px;
   border-bottom: 0;
   text-align: center;
   width: 100%;
+  background-color: rgb(49, 47, 43);
 }
 
 #addTask {
@@ -60,9 +54,11 @@ body * {
 }
 
 #addDescription {
+  font-size: 18px;
   padding: 12px;
   border-bottom: 0;
   width: 100%;
+  background-color: rgb(49, 47, 43);
 }
 
 #addButton {
@@ -75,7 +71,7 @@ body * {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: rgb(109, 109, 109);
+  background-color: rgb(49, 47, 43);
 }
 
 #tasks li {
@@ -85,9 +81,20 @@ body * {
 }
 
 #tasks li input[type=text]{
+  font-size: 16px;
   padding: 10px;
   width: 100%;
   border: 0;
+  background-color: rgb(49, 47, 43);
+}
+
+/* JS */
+#tasks li input[type=text].highlight {
+  background-color: chartreuse;
+}
+
+#tasks li input[type=text].done {
+  background-color: red;
 }
 
 #tasks li input[type=checkbox] {
@@ -113,6 +120,8 @@ body * {
 }
 
 #clearCompleted {
+  font-size: 18px;
   padding: 12px;
   border: 0;
+  background-color: rgb(49, 47, 43);
 }

@@ -118,6 +118,7 @@ class List {
 
   checkTask = (id) => {
     const description = document.getElementById(`input${id}`);
+    description.toggleAttribute('disabled');
     description.classList.toggle('done');
   };
 
