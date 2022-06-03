@@ -76,6 +76,11 @@ body * {
   background-color: rgb(49, 47, 43);
 }
 
+#addDescription:focus,
+#listTitle:focus {
+  background-color: rgb(61, 59, 55);
+}
+
 #addDescription::placeholder {
   font-style: italic;
 }
@@ -114,7 +119,6 @@ body * {
   background-color: rgb(49, 47, 43);
 }
 
-/* JS */
 #tasks li input[type=text].highlight {
   background-color: rgb(73, 68, 52);
 }
@@ -125,7 +129,16 @@ body * {
 }
 
 #tasks li input[type=checkbox] {
+  appearance: none;
   margin: 7px;
+  border-radius: 4px;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(219, 219, 219);
+}
+
+#tasks li input[type=checkbox]:checked {
+  background-color: rgb(226, 142, 17);
 }
 
 #tasks li img {
@@ -156,6 +169,10 @@ body * {
   background-color: rgb(61, 59, 55);
 }
 
-.selected {
-  background-color: rgb(61, 59, 55);
+#clearCompleted:hover {
+  background-color: rgb(73, 71, 66);
+}
+
+#clearCompleted:active {
+  background-color: rgb(83, 80, 75);
 }
