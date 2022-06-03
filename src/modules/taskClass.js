@@ -85,7 +85,7 @@ class List {
 
   removeHighlight = () => {
     const id = this.findHighlight();
-    if (id) {
+    if (id >= 0) {
     const input = document.getElementById(`input${id}`);
     const drag = document.getElementById(`drag${id}`);
     const removeButton = document.getElementById(`button${id}`);
