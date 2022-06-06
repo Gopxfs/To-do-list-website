@@ -1,5 +1,5 @@
-# Webpack boilerplate
-> A exercise to understand and apply how webpacks work.
+# To-do list
+> A website that works as a to-do list. The user can add, check and remove tasks.
 
 ## Built With:
 - HTML
@@ -8,11 +8,14 @@
 - JSON
 - Webpack
 
+## Live demo:
+[Live Demo](https://gopxfs.github.io/To-do-list-website/)
+
 ## Getting Started:
 To access and change the code on your computer (using GIT):
 > Note: if you don't use git, you can download the ZIP of this repository by clicking on the "Code" button above the files list.
 ### Setup
-- Open the repository [link](https://github.com/Gopxfs/webpack-boilerplate).
+- Open the repository [link](https://github.com/Gopxfs/To-do-list-website).
 - Click on the "Code" button, above the files list.
 - Select one of the three options to copy the URL: HTTPS, SSH key and GitHub CLI.
 - Open the Terminal in the directory you want to copy the project.
@@ -35,4 +38,4 @@ Huge thanks to:<br>
 Microverse, for the structure to let me learn more.
 
 ## :pencil: License
-This project is [MIT](https://github.com/Gopxfs/webpack-boilerplate/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/Gopxfs/To-do-list-website/blob/main/LICENSE) licensed.
