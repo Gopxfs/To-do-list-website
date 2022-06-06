@@ -9,7 +9,7 @@
 - Webpack
 
 ## Live demo:
-[Live Demo](https://gopxfs.github.io/To-do-list-website/)
+[Live Demo](https://gopxfs.github.io/To-do-list-website/dist)
 
 ## Getting Started:
 To access and change the code on your computer (using GIT):
