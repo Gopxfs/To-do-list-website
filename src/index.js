@@ -1,4 +1,3 @@
-// import _ from 'lodash';
 import './style.css';
 import List from './modules/taskClass.js';
 
