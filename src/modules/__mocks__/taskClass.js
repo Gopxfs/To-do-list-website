@@ -1,4 +1,3 @@
-
 class List {
   constructor(taskID) {
     this.tasks = [];
@@ -28,7 +27,6 @@ class List {
     const drag = document.createElement('img');
     button.classList.add('hidden');
     drag.classList.add('dots');
-    drag.setAttribute('src', move);
     drag.setAttribute('id', `drag${task.id}`);
     li.setAttribute('id', `li${task.id}`);
     checkbox.setAttribute('id', `checkbox${task.id}`);
