@@ -1,4 +1,3 @@
-// import move from '../images/move.png';
 
 class List {
   constructor(taskID) {
@@ -44,15 +43,9 @@ class List {
   };
 
   removeTask = (task) => {
-    const ul = document.getElementById('tasks');
-    const index = this.getTaskIndex(task.id);
-    const li = document.getElementById(`li${task.id}`);
-    this.tasks.splice(index, 1);
-    ul.removeChild(li);
-    for (let i = index; i < this.tasks.length; i += 1) {
-      this.tasks[i].index -= 1;
-    }
-    this.setData();
+    this.tasks.splice(task.id, 1);
+
+    return this.tasks.length;
   };
 
   removeDiv = (task) => {

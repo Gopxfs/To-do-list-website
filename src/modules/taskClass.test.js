@@ -11,8 +11,18 @@ describe('testing add task function', () => {
     expect(list.addTask('eat more',4,false)).toBe(list.tasks[3]);
   });
 });
-
+const newTask = {
+  description: 'play videogames',
+  isCompleted: true,
+  index: 3,
+  id: 2
+}
 //remove
-
+describe('testing remove task function', () => {
+  test('removing a task', () => {
+    expect(list.removeTask(newTask)).toBe(3);
+  })
+})
 // add li
+
 // remove li
