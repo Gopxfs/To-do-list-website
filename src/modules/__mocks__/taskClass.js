@@ -98,12 +98,12 @@ class List {
 
   updateDescription = (description, task) => {
     task.description = description;
-    this.setData();
+    // this.setData();
   };
 
   updateCheckbox = (task) => {
     task.isCompleted = !task.isCompleted;
-    this.setData();
+    // this.setData();
   };
 
   checkTask = (id) => {

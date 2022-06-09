@@ -86,3 +86,18 @@ describe('testing remove task function', () => {
     expect(list.removeTask(newTask)).toBe(5);
   });
 });
+
+describe('testing "checked items" function', () => {
+  test('checking an item', () => {
+    let status = list.tasks[1].isCompleted;
+    list.updateCheckbox(list.tasks[1]);
+    expect(status).toBe(!list.tasks[1].isCompleted);
+  })
+})
+
+describe('testing "update description" function', () => {
+  test('updating an item', () => {
+    list.updateDescription('Argentina wins against Brazil', list.tasks[1]);
+    expect(list.tasks[1].description).toBe('Argentina wins against Brazil');
+  });
+});
