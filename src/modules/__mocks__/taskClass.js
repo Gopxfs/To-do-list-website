@@ -41,24 +41,23 @@ class List {
   };
 
   removeTask = (task) => {
-    this.tasks.splice(task.id, 1);
-
+    this.tasks.splice(task.index-1, 1);
     return this.tasks.length;
   };
 
   removeDiv = (task) => {
-    const ul = document.getElementById('tasks');
-    const index = this.getTaskIndex(task.id);
+    const ul = document.getElementById('fakeTasks');
+    const index = this.getTaskIndex(task.index);
     const li = document.getElementById(`li${task.id}`);
-    ul.removeChild(li);
-    for (let i = index; i < this.tasks.length; i += 1) {
+    this.removeTask(task);
+    for (let i = index-1; i < this.tasks.length; i += 1) {
       this.tasks[i].index -= 1;
     }
   };
 
   clearCompleted = (task) => {
     if (task.isCompleted === true) {
-      this.removeDiv(task);
+      this.removeTask(task);
       return false;
     }
     return true;
